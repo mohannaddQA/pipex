@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mem_utilities.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mabuqare  <mabuqare@student.42amman.com    +#+  +:+       +#+        */
+/*   By: mabuqare <mabuqare@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 23:44:13 by mabuqare          #+#    #+#             */
-/*   Updated: 2025/11/02 22:24:12 by mabuqare         ###   ########.fr       */
+/*   Updated: 2025/11/07 15:20:15 by mabuqare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

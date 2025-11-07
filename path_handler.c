@@ -6,7 +6,7 @@
 /*   By: mabuqare <mabuqare@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 09:56:39 by mabuqare          #+#    #+#             */
-/*   Updated: 2025/11/06 09:28:10 by mabuqare         ###   ########.fr       */
+/*   Updated: 2025/11/07 20:38:21 by mabuqare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ char	*search_env_bin_paths(char **envp, char *path)
 
 	i = -1;
 	path_str = NULL;
+	(void)path;
 	while (envp[++i])
 	{
 		if (ft_strnstr(envp[i], "PATH=", 5))
@@ -50,6 +51,8 @@ char	*search_env_bin_paths(char **envp, char *path)
 	if (!path_str)
 		return (NULL);
 	env_bin_paths = ft_split(&path_str[5], ':');
+	if (!env_bin_paths)
+		return (NULL);
 	full_path = check_path_access(env_bin_paths, path);
 	ft_free_arr(env_bin_paths);
 	return (full_path);

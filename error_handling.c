@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_handling.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mabuqare  <mabuqare@student.42amman.com    +#+  +:+       +#+        */
+/*   By: mabuqare <mabuqare@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 17:48:25 by mabuqare          #+#    #+#             */
-/*   Updated: 2025/11/02 22:41:02 by mabuqare         ###   ########.fr       */
+/*   Updated: 2025/11/06 11:50:11 by mabuqare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,18 @@ void	ft_close_fds(t_pipex p_info, int close_read, int close_write)
 	if (close_read && p_info.pipe_fds[READ] > 2)
 	{
 		close(p_info.pipe_fds[READ]);
-		p_info.pipe_fds[READ] = -1;
 	}
 	if (close_write && p_info.pipe_fds[WRITE] > 2)
 	{
 		close(p_info.pipe_fds[WRITE]);
-		p_info.pipe_fds[WRITE] = -1;
 	}
 	if (p_info.file_fds[READ] > 2)
 	{
 		close(p_info.file_fds[READ]);
-		p_info.file_fds[READ] = -1;
 	}
 	if (p_info.file_fds[WRITE] > 2)
 	{
 		close(p_info.file_fds[WRITE]);
-		p_info.file_fds[WRITE] = -1;
 	}
 }
 

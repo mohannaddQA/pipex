@@ -6,7 +6,7 @@
 /*   By: mabuqare <mabuqare@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 22:38:09 by mabuqare          #+#    #+#             */
-/*   Updated: 2025/11/06 09:31:56 by mabuqare         ###   ########.fr       */
+/*   Updated: 2025/11/07 16:30:28 by mabuqare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	process_cmd(char *bin_path, char **cmd_args, t_pipex p_info,
 		ft_free_arr(cmd_args);
 		throw_err(NULL, 1, p_info);
 	}
-	execv(bin_path, cmd_args);
+	execve(bin_path, cmd_args, p_info.envp);
 	free(bin_path);
 	ft_free_arr(cmd_args);
 	throw_err(NULL, 0, p_info);
@@ -70,7 +70,7 @@ int	main(int argc, char **argv, char **envp)
 
 	i = 0;
 	status = 0;
-	parse_input(argc, argv, &p_info);
+	parse_input(argc, argv, &p_info, envp);
 	while (i < p_info.processes_count)
 	{
 		if (pipe(p_info.pipe_fds) == -1)

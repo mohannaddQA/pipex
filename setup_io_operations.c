@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   setup_io_operations.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mabuqare  <mabuqare@student.42amman.com    +#+  +:+       +#+        */
+/*   By: mabuqare <mabuqare@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 18:14:34 by mabuqare          #+#    #+#             */
-/*   Updated: 2025/11/05 09:13:37 by mabuqare         ###   ########.fr       */
+/*   Updated: 2025/11/07 15:31:51 by mabuqare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

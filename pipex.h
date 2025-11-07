@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mabuqare  <mabuqare@student.42amman.com    +#+  +:+       +#+        */
+/*   By: mabuqare <mabuqare@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 11:14:46 by mabuqare          #+#    #+#             */
-/*   Updated: 2025/11/03 22:04:18 by mabuqare         ###   ########.fr       */
+/*   Updated: 2025/11/06 12:28:00 by mabuqare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_pipex
 	int		last_cmd_idx;
 	char	*in_file;
 	char	*out_file;
+	char	**envp;
 	pid_t	pd;
 	pid_t	last_pid;
 }			t_pipex;
@@ -33,7 +34,7 @@ int			setup_output_file(t_pipex p_info);
 int			setup_input_file(t_pipex p_info);
 int			redirect_output(t_pipex p_info);
 int			redirect_input(t_pipex p_info);
-void		parse_input(int argc, char **argv, t_pipex *pipex_info);
+void		parse_input(int argc, char **argv, t_pipex *p_info, char **envp);
 /*---Error handlers---*/
 void		*throw_err(char *custom_err, int custom_errno, t_pipex p_info);
 void		ft_close_fds(t_pipex p_info, int close_read, int close_write);

@@ -6,7 +6,7 @@
 /*   By: mabuqare <mabuqare@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 22:38:09 by mabuqare          #+#    #+#             */
-/*   Updated: 2025/11/06 09:32:08 by mabuqare         ###   ########.fr       */
+/*   Updated: 2025/11/07 21:30:58 by mabuqare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	process_cmd(char *bin_path, char **cmd_args, t_pipex p_info,
 		ft_free_arr(cmd_args);
 		throw_err(NULL, 1, p_info);
 	}
-	execv(bin_path, cmd_args);
+	execve(bin_path, cmd_args, p_info.envp);
 	free(bin_path);
 	ft_free_arr(cmd_args);
 	throw_err(NULL, 0, p_info);
@@ -62,6 +62,18 @@ void	init_process(char **argv, char **envp, t_pipex p_info, int cmd_idx)
 	process_cmd(full_bin_path, cmd_args, p_info, cmd_idx);
 }
 
+void	close_unneded_heredoc(int i, t_pipex *p_info)
+{
+	if (i != 0 && p_info->here_doc_enabled)
+	{
+		if (p_info->file_fds[0] != -1)
+		{
+			close(p_info->file_fds[0]);
+			p_info->file_fds[0] = -1;
+		}
+	}
+}
+
 int	main(int argc, char **argv, char **envp)
 {
 	t_pipex	p_info;
@@ -70,9 +82,10 @@ int	main(int argc, char **argv, char **envp)
 
 	i = 0;
 	status = 0;
-	parse_input(argc, argv, &p_info);
+	parse_input(argc, argv, &p_info, envp);
 	while (i < p_info.processes_count)
 	{
+		close_unneded_heredoc(i, &p_info);
 		if (pipe(p_info.pipe_fds) == -1)
 			throw_err(NULL, 0, p_info);
 		p_info.pd = fork();
