@@ -6,7 +6,7 @@
 /*   By: mabuqare  <mabuqare@student.42amman.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 22:38:09 by mabuqare          #+#    #+#             */
-/*   Updated: 2025/11/08 14:44:37 by mabuqare         ###   ########.fr       */
+/*   Updated: 2025/11/09 01:38:41 by mabuqare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	process_cmd(char *bin_path, char **cmd_args, t_pipex *p_info,
 	{
 		free(bin_path);
 		ft_free_arr(cmd_args);
-		throw_err(NULL, 1, *p_info);
+		throw_err(NULL, 0, *p_info);
 	}
 	execve(bin_path, cmd_args, p_info->envp);
 	free(bin_path);
@@ -54,7 +54,7 @@ void	init_process(char **argv, char **envp, t_pipex *p_info, int cmd_idx)
 		if (cmd_idx == p_info->first_cmd_idx + p_info->processes_count - 1
 			&& setup_output_file(p_info) == -1)
 		{
-			throw_err(NULL, 1, *p_info);
+			throw_err(NULL, 0, *p_info);
 		}
 		ft_free_arr(cmd_args);
 		throw_err("command not found", 127, *p_info);

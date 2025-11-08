@@ -6,7 +6,7 @@
 /*   By: mabuqare  <mabuqare@student.42amman.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 22:38:09 by mabuqare          #+#    #+#             */
-/*   Updated: 2025/11/09 01:30:54 by mabuqare         ###   ########.fr       */
+/*   Updated: 2025/11/09 01:36:51 by mabuqare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	process_cmd(char *bin_path, char **cmd_args, t_pipex *p_info,
 	{
 		free(bin_path);
 		ft_free_arr(cmd_args);
-		throw_err(NULL, 1, *p_info);
+		throw_err(NULL, 0, *p_info);
 	}
 	execve(bin_path, cmd_args, p_info->envp);
 	free(bin_path);
