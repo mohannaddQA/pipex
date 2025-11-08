@@ -6,7 +6,7 @@
 /*   By: mabuqare  <mabuqare@student.42amman.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 17:48:25 by mabuqare          #+#    #+#             */
-/*   Updated: 2025/11/08 14:56:29 by mabuqare         ###   ########.fr       */
+/*   Updated: 2025/11/09 00:16:54 by mabuqare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,13 @@ void	*throw_err(char *custom_err, int custom_errno, t_pipex p_info)
 	if (custom_errno == 0)
 		exit_code = errno;
 	else
+	{
+		errno = custom_errno;
 		exit_code = custom_errno;
+	}
 	if (custom_err)
 		display_err(custom_err);
-	else if (custom_errno == 0 && errno != 0)
+	else
 		perror("pipex");
 	ft_close_fds(p_info, 1, 1);
 	exit(exit_code);
