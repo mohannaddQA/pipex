@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mabuqare <mabuqare@student.42amman.com>    +#+  +:+       +#+        */
+/*   By: mabuqare  <mabuqare@student.42amman.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 11:14:46 by mabuqare          #+#    #+#             */
-/*   Updated: 2025/11/06 12:27:33 by mabuqare         ###   ########.fr       */
+/*   Updated: 2025/11/08 13:58:34 by mabuqare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ int			setup_heredoc_input_file(t_pipex p_info);
 /*Get Next Line*/
 char		*get_next_line(int fd);
 /*---Setup I/O---*/
-int			setup_output_file(t_pipex p_info);
-int			setup_input_file(t_pipex p_info);
-int			redirect_output(t_pipex p_info);
-int			redirect_input(t_pipex p_info);
+int			setup_output_file(t_pipex *p_info);
+int			setup_input_file(t_pipex *p_info);
+int			redirect_output(t_pipex *p_info);
+int			redirect_input(t_pipex *p_info);
 void		parse_input(int argc, char **argv, t_pipex *p_info, char **envp);
 /*---Error handlers---*/
 void		*throw_err(char *custom_err, int custom_errno, t_pipex p_info);

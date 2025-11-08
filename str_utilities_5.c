@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   str_utilities_5.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mabuqare <mabuqare@student.42amman.com>    +#+  +:+       +#+        */
+/*   By: mabuqare  <mabuqare@student.42amman.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 10:19:07 by mabuqare          #+#    #+#             */
-/*   Updated: 2025/11/07 15:12:24 by mabuqare         ###   ########.fr       */
+/*   Updated: 2025/11/08 14:36:30 by mabuqare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

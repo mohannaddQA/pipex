@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_handling.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mabuqare <mabuqare@student.42amman.com>    +#+  +:+       +#+        */
+/*   By: mabuqare  <mabuqare@student.42amman.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 17:48:25 by mabuqare          #+#    #+#             */
-/*   Updated: 2025/11/06 11:50:11 by mabuqare         ###   ########.fr       */
+/*   Updated: 2025/11/08 14:46:30 by mabuqare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,20 @@ void	display_err(char *err_msg)
 {
 	ft_putstr_fd("pipex: ", 2);
 	ft_putstr_fd(err_msg, 2);
+	ft_putchar_fd('\n', 2);
 }
 
 void	*throw_err(char *custom_err, int custom_errno, t_pipex p_info)
 {
 	int	exit_code;
 
-	exit_code = custom_errno;
-	if (exit_code == 0)
+	if (custom_errno == 0)
 		exit_code = errno;
+	else
+		exit_code = custom_errno;
 	if (custom_err)
 		display_err(custom_err);
-	else if (errno != 0)
+	else if (custom_errno == 0 && errno != 0)
 		perror("pipex");
 	ft_close_fds(p_info, 1, 1);
 	exit(exit_code);

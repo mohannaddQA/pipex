@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   path_handler.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mabuqare <mabuqare@student.42amman.com>    +#+  +:+       +#+        */
+/*   By: mabuqare  <mabuqare@student.42amman.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 09:56:39 by mabuqare          #+#    #+#             */
-/*   Updated: 2025/11/07 20:38:21 by mabuqare         ###   ########.fr       */
+/*   Updated: 2025/11/08 14:44:52 by mabuqare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ char	*search_env_bin_paths(char **envp, char *path)
 
 	i = -1;
 	path_str = NULL;
-	(void)path;
 	while (envp[++i])
 	{
 		if (ft_strnstr(envp[i], "PATH=", 5))
