@@ -6,7 +6,7 @@
 /*   By: mabuqare  <mabuqare@student.42amman.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 22:38:09 by mabuqare          #+#    #+#             */
-/*   Updated: 2025/11/09 01:36:51 by mabuqare         ###   ########.fr       */
+/*   Updated: 2025/11/10 22:19:51 by mabuqare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void	init_process(char **argv, char **envp, t_pipex *p_info, int cmd_idx)
 		if (cmd_idx == p_info->first_cmd_idx + p_info->processes_count - 1
 			&& setup_output_file(p_info) == -1)
 		{
+			ft_free_arr(cmd_args);
 			throw_err(NULL, 0, *p_info);
 		}
 		ft_free_arr(cmd_args);

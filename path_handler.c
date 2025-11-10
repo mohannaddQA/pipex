@@ -6,7 +6,7 @@
 /*   By: mabuqare  <mabuqare@student.42amman.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 09:56:39 by mabuqare          #+#    #+#             */
-/*   Updated: 2025/11/09 17:50:13 by mabuqare         ###   ########.fr       */
+/*   Updated: 2025/11/10 22:19:33 by mabuqare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ char	*check_path_access(char **bin_paths, char *path)
 	int		i;
 
 	i = 0;
-	(void)path;
 	while (bin_paths[i])
 	{
 		full_path = ft_strjoin(bin_paths[i++], path);
